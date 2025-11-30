@@ -318,7 +318,9 @@ function resetQuizState() {
     if(playerQuizSection) {
         // 子機のボタンのスタイルとクリックブロッカーをリセット
         playerQuizSection.querySelectorAll('button').forEach(btn => {
-            btn.classList.remove('answered');
+            btn.classList.remove('answered'); // ★★★ 赤色をリセット ★★★
+          　// インラインスタイルで背景色を明示的にクリア (CSS優先度対策)
+            btn.style.backgroundColor = '';
             btn.disabled = false;
         });
         document.getElementById('player-quiz-message').textContent = "";
@@ -584,6 +586,7 @@ function resetGame() {
     });
 
 }
+
 
 
 
